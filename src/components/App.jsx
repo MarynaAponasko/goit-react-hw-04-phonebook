@@ -11,7 +11,7 @@ const App = () => {
 
   useEffect(() => {
     // console.log('use effect');
-    const contacts = JSON.parse(localStorage.getItem('my-contacts'));
+    const contacts = JSON.parse(window.localStorage.getItem('my-contacts'));
     if (contacts?.length) {
       setContacts(contacts);
     }
@@ -19,7 +19,7 @@ const App = () => {
 
   useEffect(() => {
     // console.log('use effect change contacts');
-    localStorage.setItem('my-contacts', JSON.stringify(contacts));
+    window.localStorage.setItem('my-contacts', JSON.stringify(contacts));
   }, [contacts]);
 
   const isDublicate = name => {
@@ -63,7 +63,7 @@ const App = () => {
       <h1>Phonebook</h1>
       <ContactForm onSubmit={addNewContact} />
       <h2>Contacts</h2>
-      <Filter stateFilter={filter} onFilterChange={changeFilter} />
+      <Filter stateFilter={filter} onFilterChange={() => changeFilter} />
       <ContactList
         contacts={getVisibleContacts()}
         deleteContact={deleteContact}
