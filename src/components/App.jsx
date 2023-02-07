@@ -10,7 +10,7 @@ const App = () => {
   const [filter, setFilter] = useState('');
 
   useEffect(() => {
-    console.log('use effect');
+    // console.log('use effect');
     const contacts = JSON.parse(localStorage.getItem('my-contacts'));
     if (contacts?.length) {
       setContacts(contacts);
@@ -18,7 +18,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    console.log('use effect change contacts');
+    // console.log('use effect change contacts');
     localStorage.setItem('my-contacts', JSON.stringify(contacts));
   }, [contacts]);
 
