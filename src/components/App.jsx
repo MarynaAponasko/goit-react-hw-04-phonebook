@@ -18,6 +18,9 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    if (!contacts.length) {
+      return;
+    }
     // console.log('use effect change contacts');
     window.localStorage.setItem('my-contacts', JSON.stringify(contacts));
   }, [contacts]);
