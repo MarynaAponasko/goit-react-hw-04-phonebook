@@ -66,7 +66,7 @@ const App = () => {
       <h1>Phonebook</h1>
       <ContactForm onSubmit={addNewContact} />
       <h2>Contacts</h2>
-      <Filter stateFilter={filter} onFilterChange={() => changeFilter} />
+      <Filter stateFilter={filter} onFilterChange={changeFilter} />
       <ContactList
         contacts={getVisibleContacts()}
         deleteContact={deleteContact}
